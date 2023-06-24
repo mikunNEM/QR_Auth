@@ -1,7 +1,8 @@
 const sym = require('/node_modules/symbol-sdk');
 const repo = new sym.RepositoryFactoryHttp('https://symbol-mikun.net:3001');
 const accountRepo = repo.createAccountRepository();
-const Mosaic_ID = "EFDA71B8B16011D8";
+const Mosaic_ID = "0C1058BB20787615";
+console.log("Check Mosaic_ID =====",Mosaic_ID);
 
 var isMovieScanning = false;
 var video = document.createElement("video");
@@ -95,12 +96,14 @@ function parseData(code){
         
              for (let i=0; i < accountInfo.mosaics.length; i++){
                         if (accountInfo.mosaics[i].id.id.toHex() === Mosaic_ID){
+                           console.log(accountInfo.mosaics[i].id.id.toHex());
                            console.log(`OK🟢`);
                           // alert(`認証OK`,"");
                           flag = true;
                           swal(`モザイク認証OK`,"");
                           return
                         }else{
+                           console.log(accountInfo.mosaics[i].id.id.toHex()); 
                            console.log(`NG🔴`); 
                            flag = false;                                         
                         }
